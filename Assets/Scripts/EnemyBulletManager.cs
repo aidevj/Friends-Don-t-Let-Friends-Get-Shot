@@ -28,11 +28,20 @@ public class EnemyBulletManager : MonoBehaviour
     [SerializeField]
     GameObject blueBulletPref;
 
-    private void Start()
+    Vector3 target2;
+
+    void Start()
     {
         //aimShot(BulletColor.Red, Vector2.down);
-        WayShot(BulletColor.Red, Vector2.down, 4);
+        //WayShot(BulletColor.Red, Vector2.down, 4);
+        scatterShot(BulletColor.Red, Vector2.up, 20);
     }
+
+    void Update()
+    {
+        
+    }
+
     // ----------------------------------------------------------------------------------------------------------
     // public関数
     // ----------------------------------------------------------------------------------------------------------
@@ -98,6 +107,20 @@ public class EnemyBulletManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ばらまき弾
+    /// </summary>
+    /// <param name="bc">弾の色</param>
+    /// <param name="target">ターゲット</param>
+    /// <param name="shotNum">発射数</param>
+    public void scatterShot(BulletColor bc, Vector3 target, int shotNum)
+    {
+        var direction = target - transform.position;
+        var baseAngle = Mathf.Atan2(direction.y, direction.x);
+
+        StartCoroutine(scatterCoroutine(bc, shotNum, baseAngle));
+    }
+
 
     // ----------------------------------------------------------------------------------------------------------
     // private関数
@@ -118,5 +141,25 @@ public class EnemyBulletManager : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    /// <summary>
+    /// ばらまき弾
+    /// </summary>
+    /// <param name="bc"></param>
+    /// <param name="shotNum"></param>
+    /// <param name="baseAngle"></param>
+    /// <returns></returns>
+    IEnumerator scatterCoroutine(BulletColor bc, int shotNum, float baseAngle)
+    {
+        for (int i = 0; i < shotNum; ++i) {
+            var angle = Random.Range(0.0f, 1500.0f) / 1000.0f - 0.75f;
+            var x = Mathf.Cos(angle);
+            var y = Mathf.Sin(angle);
+            var obj = createBullet(bc);
+            obj.GetComponent<EnemyBullet>().initBullet(new Vector2(x, y).normalized);
+            yield return new WaitForSeconds(0.1f);
+        }
+
     }
 }
