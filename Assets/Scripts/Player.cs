@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		GM = GameObject.Find ("GameManager").GetComponent<GameManager> ();
-        playerHealthUI = GameObject.Find("PlayerHP").GetComponent<PlayerHealthUI> ();
 
 		//コントロールをロードする
 		switch (playerNumber) {
@@ -38,12 +37,14 @@ public class Player : MonoBehaviour {
 				controlAxisX = "Horizontal_P1";
 				controlAxisY = "Vertical_P1";
 				assignedBulletPrefab = GM.playerBulletPrefab_Blue;
+                playerHealthUI = GameObject.Find("Player1HP").GetComponent<PlayerHealthUI> ();
 				break;
 			case 1:
 				controlAxisX = "Horizontal_P2";
 				controlAxisY = "Vertical_P2";
 				assignedBulletPrefab = GM.playerBulletPrefab_Red;
-				break;
+                playerHealthUI = GameObject.Find("Player2HP").GetComponent<PlayerHealthUI>();
+                break;
 		}
 
 
