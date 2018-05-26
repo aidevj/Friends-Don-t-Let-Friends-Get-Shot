@@ -990,6 +990,10 @@ GameObject:
   - component: {fileID: 1095829046}
   - component: {fileID: 1095829044}
   - component: {fileID: 1095829045}
+  - component: {fileID: 1095829051}
+  - component: {fileID: 1095829050}
+  - component: {fileID: 1095829049}
+  - component: {fileID: 1095829048}
   m_Layer: 0
   m_Name: Enemy_temporary
   m_TagString: Enemy
@@ -1077,6 +1081,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095829048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095829043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d27f45b68e9e094ab6591de7c6d42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redBulletPref: {fileID: 1062579257924150, guid: c76c927e74b606e4880a386026868fd7,
+    type: 2}
+  blueBulletPref: {fileID: 1745755484230882, guid: c207efecc0eb568409e3c029a6c11630,
+    type: 2}
+--- !u!114 &1095829049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095829043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5916633aabcb727419e4561c8e5fea09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  v: {x: 0, y: 0}
+  time: 1
+  velocity: {x: 0, y: 0}
+--- !u!50 &1095829050
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095829043}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1095829051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1095829043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205542ff01c46c94aa9a86f88473929c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rnd_max: 3
+  rnd_min: 0
+  state: 0
+  diff: 0.3
+  shotCtrl: 0
+  LifeMax: 10
+  enemyLife: 10
+  shotpar: 0
 --- !u!1 &1115308161
 GameObject:
   m_ObjectHideFlags: 0
