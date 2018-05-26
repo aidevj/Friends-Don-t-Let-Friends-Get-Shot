@@ -18,26 +18,26 @@ public class EnemyPatterns : MonoBehaviour {
 	public void movePatterns(int state){
 		// move right-up
 		if(state == 0){
-			target.x = 3;
-			target.y = 3;
+			target.x = 5;
+			target.y = 5;
 			transform.position = Vector2.SmoothDamp(transform.position,target,ref velocity,time,100,Time.deltaTime);
 		}
 		// move left-up
 		if(state == 1){
-			target.x = -3;
-			target.y = 3;
+			target.x = -5;
+			target.y = 5;
 			transform.position = Vector2.SmoothDamp(transform.position,target,ref velocity,time,100,Time.deltaTime);
 		}
 		// move left-down
 		if(state == 2){
-			target.x = -3;
-			target.y = -3;
+			target.x = -5;
+			target.y = -5;
 			transform.position = Vector2.SmoothDamp(transform.position,target,ref velocity,time,100,Time.deltaTime);
 		}
 		// move right-down
 		if(state == 3){
-			target.x = 3;
-			target.y = -3;
+			target.x = 5;
+			target.y = -5;
 			transform.position = Vector2.SmoothDamp(transform.position,target,ref velocity,time,100,Time.deltaTime);
 		}
 	}

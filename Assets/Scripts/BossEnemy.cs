@@ -14,9 +14,9 @@ public class BossEnemy : MonoBehaviour {
 	public float diff = 0.3f;
 	public int shotCtrl = 0;
 	
-	public int LifeMax = 10;
+	public int LifeMax = 5;
 
-	public int enemyLife = 10;
+	public int enemyLife = 5;
 	
 	public int shotpar = 0;
 	GameObject[] player;

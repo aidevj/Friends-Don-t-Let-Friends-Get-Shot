@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74482d572147ea47aae2b1740418eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 10
+  ammo: 100
   ammoPrefab: {fileID: 0}
   playerPrefab: {fileID: 1614905845157556, guid: b96d61ee95fb283448ab5a00e57fe43d,
     type: 2}
