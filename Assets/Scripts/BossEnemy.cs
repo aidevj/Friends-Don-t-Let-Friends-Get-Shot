@@ -40,6 +40,17 @@ public class BossEnemy : MonoBehaviour {
 			shotpar = Random.Range(0,3);
 
 			if(shotpar == 0){
+				EBM.scatterShot( BulletColor.Blue, player[Random.Range(0,1)].transform.position, 6);
+			}else if( shotpar == 1){
+			    EBM.circleShot(BulletColor.Red, 36);
+			}else if(shotpar == 2){
+			    EBM.WayShot(BulletColor.Blue, player[Random.Range(0,1)].transform.position, 3, 10);
+			}else if(shotpar == 3){
+				EBM.aimShot(BulletColor.Red, player[Random.Range(0,1)].transform.position);
+			}
+			
+			/*			
+			if(shotpar == 0){
 				EBM.scatterShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 6);
 			}else if( shotpar == 1){
 			    EBM.circleShot((EnemyBulletManager.BulletColor)Random.Range(0,1), 36);
@@ -48,17 +59,7 @@ public class BossEnemy : MonoBehaviour {
 			}else if(shotpar == 3){
 				EBM.aimShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position);
 			}
-			
-			/*			if(enemyLife < LifeMax * 0.3 ){
-				EBM.scatterShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 6);
-			}else if(enemyLife < LifeMax * 0.5 ){
-			    EBM.circleShot((EnemyBulletManager.BulletColor)Random.Range(0,1), 36);
-			}else if(enemyLife < LifeMax * 0.8 ){
-			    EBM.WayShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 3, 10);
-			}else{
-				EBM.aimShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position);
-			}
-*/			
+			*/
 		}
 		
 		patterns.movePatterns(state);
