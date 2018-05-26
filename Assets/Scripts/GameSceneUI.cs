@@ -8,13 +8,16 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField]
     GameObject hpSlider;
 
+    BossEnemy boss;
+
     void Start()
     {
-        //hpSlider.GetComponent<>
+        boss = GameObject.FindWithTag("Enemy").GetComponent<BossEnemy>();
+        hpSlider.GetComponent<Slider>().maxValue = boss.enemyLife;
     }
 
     void Update()
     {
-        //hpSlider.GetComponent<Slider>().value = ;
+        hpSlider.GetComponent<Slider>().value = boss.enemyLife;
     }
 }
