@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // ゲームの状況
 public enum GameState {
 	MainMenu,	//　タイトル
@@ -13,7 +14,7 @@ public enum GameState {
 
 public class GameManager : MonoBehaviour {
 
-	public int ammo; // 弾丸の量	。二人のプレイヤーは同じ量を使う
+	public int ammo = 100; // 弾丸の量	。二人のプレイヤーは同じ量を使う
 
 	public GameObject ammoPrefab;
 	public GameObject playerPrefab;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		// ＊＊いつもタイトルからゲームをロードしてください＊＊
 		//gameState = GameState.MainMenu;
+
+
 
 		// テスト
 		p1 = GameObject.Find ("Player1").GetComponent<Player> ();

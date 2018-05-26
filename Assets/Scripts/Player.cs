@@ -8,7 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public class Player : MonoBehaviour {
 	private GameManager GM;			// GameManagerオブジェクトをアクセスするため
-		
+									// ＊＊＊＊GameManagerシーンはゲームシーンと一緒にロードしているのは必要です！！
 	public int playerNumber;		// 0: P1 (青) ; 1: P2 (赤)
 	public float speed = .2f;
 
