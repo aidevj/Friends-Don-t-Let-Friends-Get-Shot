@@ -28,6 +28,11 @@ public class EnemyBullet : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // プレイヤーの弾が「赤」で自分が「青」
