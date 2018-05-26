@@ -28,18 +28,6 @@ public class EnemyBulletManager : MonoBehaviour
     [SerializeField]
     GameObject blueBulletPref;
 
-    void Start()
-    {
-        //aimShot(BulletColor.Red, Vector2.down);
-        //WayShot(BulletColor.Red, Vector2.down, 4);
-        scatterShot((BulletColor)1, Vector2.up, 20);
-    }
-
-    void Update()
-    {
-        
-    }
-
     // ----------------------------------------------------------------------------------------------------------
     // public関数
     // ----------------------------------------------------------------------------------------------------------
