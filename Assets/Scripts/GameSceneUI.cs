@@ -13,7 +13,7 @@ public class GameSceneUI : MonoBehaviour
     void Start()
     {
         boss = GameObject.FindWithTag("Enemy").GetComponent<BossEnemy>();
-        hpSlider.GetComponent<Slider>().maxValue = boss.rnd_max;
+        hpSlider.GetComponent<Slider>().maxValue = boss.enemyLife;
     }
 
     void Update()
