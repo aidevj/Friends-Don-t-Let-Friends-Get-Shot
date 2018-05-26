@@ -40,13 +40,13 @@ public class BossEnemy : MonoBehaviour {
 			shotpar = Random.Range(0,3);
 
 			if(shotpar == 0){
-				EBM.scatterShot( BulletColor.Blue, player[Random.Range(0,1)].transform.position, 6);
+				EBM.scatterShot( EnemyBulletManager.BulletColor.Blue, player[Random.Range(0,1)].transform.position, 6);
 			}else if( shotpar == 1){
-			    EBM.circleShot(BulletColor.Red, 36);
+			    EBM.circleShot(EnemyBulletManager.BulletColor.Red, 36);
 			}else if(shotpar == 2){
-			    EBM.WayShot(BulletColor.Blue, player[Random.Range(0,1)].transform.position, 3, 10);
+			    EBM.WayShot(EnemyBulletManager.BulletColor.Blue, player[Random.Range(0,1)].transform.position, 3, 10);
 			}else if(shotpar == 3){
-				EBM.aimShot(BulletColor.Red, player[Random.Range(0,1)].transform.position);
+				EBM.aimShot(EnemyBulletManager.BulletColor.Red, player[Random.Range(0,1)].transform.position);
 			}
 			
 			/*			
