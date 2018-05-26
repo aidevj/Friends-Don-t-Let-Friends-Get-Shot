@@ -42,10 +42,16 @@ public class Player : MonoBehaviour {
 				assignedBulletPrefab = GM.playerBulletPrefab_Red;
 				break;
 		}
+
+
 	}
 
 	void Update () {
-		if (controllerEnabled) Move ();
+		if (controllerEnabled) {
+			Move ();
+			Direction ();
+		}
+
 	}
 
 	// コントロールで動く
@@ -64,6 +70,65 @@ public class Player : MonoBehaviour {
 		}
 
 	}
+
+	// スプライトの向こう
+	void Direction() {
+		switch (playerNumber) {
+			case 0:
+				if (Input.GetKeyDown (KeyCode.W)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+				}
+				if (Input.GetKeyDown(KeyCode.A)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				if (Input.GetKeyDown(KeyCode.S)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				if (Input.GetKeyDown(KeyCode.D))  {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				break;
+			case 1:
+				if (Input.GetKeyDown (KeyCode.I)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+				}
+				if (Input.GetKeyDown(KeyCode.J)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				if (Input.GetKeyDown(KeyCode.K)) {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				if (Input.GetKeyDown(KeyCode.L))  {
+					this.gameObject.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (1).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+					this.gameObject.transform.GetChild (2).gameObject.GetComponent<SpriteRenderer>().enabled = true;
+					this.gameObject.transform.GetChild (3).gameObject.GetComponent<SpriteRenderer>().enabled = false;
+				}
+				break;
+			}
+	}
+
 
 	// 玉を撃つ
 	void FireBullet() {
