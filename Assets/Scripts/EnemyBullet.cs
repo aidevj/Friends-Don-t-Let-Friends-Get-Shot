@@ -12,6 +12,9 @@ public class EnemyBullet : MonoBehaviour
     /// </summary>
     float speed = 1.0f;
 
+    /// <summary>
+    /// 弾の向き
+    /// </summary>
     Vector3 direction = Vector2.down;
 
     void Start()
