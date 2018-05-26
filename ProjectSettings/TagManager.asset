@@ -7,6 +7,9 @@ TagManager:
   - Enemy_RedBullet
   - Enemy_BlueBullet
   - Enemy
+  - Player_BlueBullet
+  - Player_RedBullet
+  - Ammo
   layers:
   - Default
   - TransparentFX

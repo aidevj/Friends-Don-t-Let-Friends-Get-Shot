@@ -140,9 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74482d572147ea47aae2b1740418eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 0
+  ammo: 10
   ammoPrefab: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 1614905845157556, guid: b96d61ee95fb283448ab5a00e57fe43d,
+    type: 2}
+  playerBulletPrefab_Blue: {fileID: 1656132819231810, guid: 685483b61c902a045a1606c37f0be2f8,
+    type: 2}
+  playerBulletPrefab_Red: {fileID: 1398468060256122, guid: ed8fbd025e1d5064aa4cad6ebaeb77d1,
+    type: 2}
   gameState: 1
   p1: {fileID: 0}
   p2: {fileID: 0}

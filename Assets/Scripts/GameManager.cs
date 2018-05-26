@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject ammoPrefab;
 	public GameObject playerPrefab;
+	public GameObject playerBulletPrefab_Blue;
+	public GameObject playerBulletPrefab_Red;
 
 	public GameState gameState = GameState.Game;	//テスト
 
