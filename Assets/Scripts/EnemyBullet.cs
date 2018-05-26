@@ -28,9 +28,18 @@ public class EnemyBullet : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // プレイヤーの弾が「赤」で自分が「青」
+        if (other.gameObject.tag == "Player_RedBullet" && gameObject.tag == "Enemy_BlueBullet") {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+        // プレイヤーの弾が「青」で自分が「赤」
+        else if (other.gameObject.tag == "Player_BlueBullet" && gameObject.tag == "Enemy_RedBullet") {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
 
     // ----------------------------------------------------------------------------------------------------------

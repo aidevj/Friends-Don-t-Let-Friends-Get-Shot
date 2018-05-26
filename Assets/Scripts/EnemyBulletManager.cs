@@ -28,8 +28,6 @@ public class EnemyBulletManager : MonoBehaviour
     [SerializeField]
     GameObject blueBulletPref;
 
-    Vector3 target2;
-
     void Start()
     {
         //aimShot(BulletColor.Red, Vector2.down);
@@ -135,9 +133,9 @@ public class EnemyBulletManager : MonoBehaviour
     {
         switch (bc) {
             case BulletColor.Red:
-                return Instantiate(redBulletPref);
+                return Instantiate(redBulletPref, transform);
             case BulletColor.Blue:
-                return Instantiate(blueBulletPref);
+                return Instantiate(blueBulletPref, transform);
             default:
                 return null;
         }
@@ -153,7 +151,7 @@ public class EnemyBulletManager : MonoBehaviour
     IEnumerator scatterCoroutine(BulletColor bc, int shotNum, float baseAngle)
     {
         for (int i = 0; i < shotNum; ++i) {
-            var angle = Random.Range(0.0f, 1500.0f) / 1000.0f - 0.75f;
+            var angle = baseAngle + Random.Range(0.0f, 1500.0f) / 1000.0f - 0.75f;
             var x = Mathf.Cos(angle);
             var y = Mathf.Sin(angle);
             var obj = createBullet(bc);
