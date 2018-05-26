@@ -32,7 +32,7 @@ public class EnemyBulletManager : MonoBehaviour
     {
         //aimShot(BulletColor.Red, Vector2.down);
         //WayShot(BulletColor.Red, Vector2.down, 4);
-        scatterShot(BulletColor.Red, Vector2.up, 20);
+        scatterShot((BulletColor)1, Vector2.up, 20);
     }
 
     void Update()
@@ -133,9 +133,9 @@ public class EnemyBulletManager : MonoBehaviour
     {
         switch (bc) {
             case BulletColor.Red:
-                return Instantiate(redBulletPref, transform);
+                return Instantiate(redBulletPref, transform.position, Quaternion.identity);
             case BulletColor.Blue:
-                return Instantiate(blueBulletPref, transform);
+                return Instantiate(blueBulletPref, transform.position, Quaternion.identity);
             default:
                 return null;
         }
