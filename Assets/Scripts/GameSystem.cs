@@ -6,7 +6,9 @@ public class GameSystem : MonoBehaviour {
 
     // Use this for initialization
     public void GameStart() {
-        SceneManager.LoadScene("MainGame");
+		
+        SceneManager.LoadScene(2);
+
 
     }
 
@@ -17,6 +19,6 @@ public class GameSystem : MonoBehaviour {
     }
     public void Restart()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(2);
     }
 }
