@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: df2c9451d75135b4bb9e8f38d4707a90
+  - enabled: 1
+    path: Assets/Scenes/kaichi2.unity
+    guid: ee6eb794d669ca8498f7197c6fd74d4a
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 4c938409cd3f30a4e9e1f0f1ddce7997
+  - enabled: 1
+    path: Assets/Scenes/GameClear.unity
+    guid: d33c8073ca95ddf4288c2e5e0ff5fa9a
