@@ -17,12 +17,15 @@ public class BossEnemy : MonoBehaviour {
 	public int LifeMax = 10;
 
 	public int enemyLife = 10;
-	GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+	
+	public int shotpar = 0;
+	GameObject[] player;
 	
 	// Use this for initialization
 	void Start () {	
 		patterns = GetComponent<EnemyPatterns>();
 		EBM = GetComponent<EnemyBulletManager>();
+		player = GameObject.FindGameObjectsWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -34,7 +37,19 @@ public class BossEnemy : MonoBehaviour {
 		
 		if(shotCtrl == 30){
 			shotCtrl = 0;
-			if(enemyLife < LifeMax * 0.3 ){
+			shotpar = Random.Range(0,3);
+
+			if(shotpar == 0){
+				EBM.scatterShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 6);
+			}else if( shotpar == 1){
+			    EBM.circleShot((EnemyBulletManager.BulletColor)Random.Range(0,1), 36);
+			}else if(shotpar == 2){
+			    EBM.WayShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 3, 10);
+			}else if(shotpar == 3){
+				EBM.aimShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position);
+			}
+			
+			/*			if(enemyLife < LifeMax * 0.3 ){
 				EBM.scatterShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position, 6);
 			}else if(enemyLife < LifeMax * 0.5 ){
 			    EBM.circleShot((EnemyBulletManager.BulletColor)Random.Range(0,1), 36);
@@ -43,6 +58,7 @@ public class BossEnemy : MonoBehaviour {
 			}else{
 				EBM.aimShot((EnemyBulletManager.BulletColor)Random.Range(0,1), player[Random.Range(0,1)].transform.position);
 			}
+*/			
 		}
 		
 		patterns.movePatterns(state);
