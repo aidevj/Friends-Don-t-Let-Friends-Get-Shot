@@ -35,7 +35,7 @@ public class BossEnemy : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 		
-		if(shotCtrl == 30){
+		if(shotCtrl == 60){
 			shotCtrl = 0;
 			shotpar = Random.Range(0,3);
 
