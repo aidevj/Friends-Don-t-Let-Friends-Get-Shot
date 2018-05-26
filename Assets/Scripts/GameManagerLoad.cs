@@ -9,4 +9,11 @@ public class GameManagerLoad : MonoBehaviour {
 	void Awake () {
 		SceneManager.LoadScene (1, LoadSceneMode.Additive);
 	}
+
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Tab)) {
+			SceneManager.LoadScene (0);
+		}
+	}
 }
+

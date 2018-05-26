@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update () {
 
+
 		// ゲームのチェック
 		if (gameState == GameState.Game) {
 			if (p1.IsDead () || p2.IsDead ()) {
