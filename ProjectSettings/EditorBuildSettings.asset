@@ -7,13 +7,10 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Title.unity
-    guid: df2c9451d75135b4bb9e8f38d4707a90
+    guid: dcc5fbe93a7addc418a2539fb6a445d6
   - enabled: 1
-    path: Assets/Scenes/kaichi2.unity
-    guid: ee6eb794d669ca8498f7197c6fd74d4a
+    path: Assets/Scenes/GameManagerScene.unity
+    guid: c63b1239be068294e9c5cb332ed080a5
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 4c938409cd3f30a4e9e1f0f1ddce7997
-  - enabled: 1
-    path: Assets/Scenes/GameClear.unity
-    guid: d33c8073ca95ddf4288c2e5e0ff5fa9a
+    path: Assets/Scenes/Aiden.unity
+    guid: e84023efdc3f27b448b70ac6407cc48b
