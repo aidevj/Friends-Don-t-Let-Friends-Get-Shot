@@ -9,6 +9,9 @@ public class BossEnemy : MonoBehaviour {
 	public int rnd_min = 0;
 	public int state = 0;
 	public float diff = 0.3f;
+	public int shotCtrl = 0;
+	
+	public int enemyLife = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,15 @@ public class BossEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		shotCtrl++;
+		if (enemyLife == 0){
+			Destroy(this.gameObject);
+		}
+		
+		if(shotCtrl == 100){
+			//shot();
+			shotCtrl = 0;
+		}
 		
 		patterns.movePatterns(state);
 		if (patterns.target.x-diff < transform.position.x && patterns.target.y-diff < transform.position.y
@@ -26,4 +38,12 @@ public class BossEnemy : MonoBehaviour {
 		}
 			
 	}
+	
+	void OnTriggerEnter2D (Collider2D c){
+		// delete bullet
+		Destroy(c.gameObject);
+
+		// life -1
+		enemyLife--;
+	}	
 }
