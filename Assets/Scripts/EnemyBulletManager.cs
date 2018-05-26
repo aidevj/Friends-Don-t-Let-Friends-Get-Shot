@@ -28,7 +28,11 @@ public class EnemyBulletManager : MonoBehaviour
     [SerializeField]
     GameObject blueBulletPref;
 
-
+    private void Start()
+    {
+        //aimShot(BulletColor.Red, Vector2.down);
+        WayShot(BulletColor.Red, Vector2.down, 4);
+    }
     // ----------------------------------------------------------------------------------------------------------
     // public関数
     // ----------------------------------------------------------------------------------------------------------
@@ -41,10 +45,41 @@ public class EnemyBulletManager : MonoBehaviour
     public void aimShot(BulletColor bc, Vector3 target)
     {
         var direction =  target - transform.position;
-        GameObject obj = createBullet(bc);
+        var obj       = createBullet(bc);
         
         // 弾の方向を渡す
         obj.GetComponent<EnemyBullet>().initBullet(direction.normalized);
+    }
+
+    /// <summary>
+    /// 多方向弾
+    /// </summary>
+    /// <param name="bc">弾の色</param>
+    /// <param name="target">ターゲット</param>
+    /// <param name="wayNum">発射数</param>
+    /// <param name="changeAngle">隣の弾との角度差</param>
+    public void WayShot(BulletColor bc, Vector3 target, int wayNum = 3, int changeAngle = 10)
+    {
+        var direction  = target - transform.position;
+        var baseAngle  = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
+        var startAngle = 0.0f;
+
+        // 偶数の時
+        if (wayNum % 2 == 0) {
+            startAngle = baseAngle + wayNum / 2 * changeAngle - changeAngle / 2;
+        }
+        // 奇数の時
+        else {
+            startAngle = baseAngle + wayNum / 2 * changeAngle;
+        }
+
+        // changeAngle度ずつwayNum数発射
+        for (int i = 0; i < wayNum; ++i, startAngle -= changeAngle) {
+            float x = Mathf.Cos(startAngle * Mathf.PI / 180.0f);
+            float y = Mathf.Sin(startAngle * Mathf.PI / 180.0f);
+            var obj = createBullet(bc);
+            obj.GetComponent<EnemyBullet>().initBullet(new Vector2(x, y).normalized);
+        }
     }
 
     /// <summary>
@@ -62,6 +97,7 @@ public class EnemyBulletManager : MonoBehaviour
             obj.GetComponent<EnemyBullet>().initBullet(new Vector2(x, y).normalized);
         }
     }
+
 
     // ----------------------------------------------------------------------------------------------------------
     // private関数
