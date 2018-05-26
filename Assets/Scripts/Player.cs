@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// プレイヤークラス
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour {
 
 	public int HP = 3;
 
+    private PlayerHealthUI playerHealthUI;
 
 	// Property
 	public bool ControllerEnabled {
@@ -28,6 +30,7 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		GM = GameObject.Find ("GameManager").GetComponent<GameManager> ();
+        playerHealthUI = GameObject.Find("PlayerHP").GetComponent<PlayerHealthUI> ();
 
 		//コントロールをロードする
 		switch (playerNumber) {
@@ -91,12 +94,14 @@ public class Player : MonoBehaviour {
 		case 0:
 			if (other.tag == "Enemy_BlueBullet")
 				HP--;
+                playerHealthUI.OnDamage(HP);
 			if (other.tag == "Enemy_RedBullet")
 				Destroy(other.gameObject);
 			break;
 		case 1:
 			if (other.tag == "Enemy_RedBullet")
 				HP--;
+                playerHealthUI.OnDamage(HP);
 			if (other.tag == "Enemy_BlueBullet")
 				Destroy(other.gameObject);
 			break;
